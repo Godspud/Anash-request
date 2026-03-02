@@ -1,0 +1,83 @@
+{ 
+  "format_version": "1.21.90",
+  "minecraft:block": { 
+    "description": {
+      "identifier": "um:tree_cutter",
+                  "menu_category": {
+                "category": "construction" 
+            },
+            "traits": {
+        "minecraft:placement_direction": {
+            "enabled_states": ["minecraft:cardinal_direction"],
+                        "y_rotation_offset": 180
+        }
+    }
+           /* "states": {
+				"um:area": [ 
+			"2x2", "4x4", "6x6", "8x8"
+				]
+			}*/
+    },
+    "components": {
+    "minecraft:geometry": "minecraft:geometry.full_block",
+     "minecraft:display_name": "Tree Cutter \n§9Um ",
+     "um:tree_cutter": {},
+     "minecraft:tick": {
+	       "interval_range": [
+		         20,
+		         20
+	                 ]
+                      },
+     "minecraft:destructible_by_mining": {
+    "seconds_to_destroy": 1.0
+     },
+      "minecraft:material_instances": {
+    "*": {
+        "texture": "factory_block_side",
+        "render_method": "blend" 
+    },
+    "up": {
+        "texture": "harvestor_top",
+        "render_method": "blend" 
+    },
+    "down": {
+        "texture": "harvestor_down",
+        "render_method": "blend" 
+    },
+    "north": {
+        "texture": "factory_cuttor_face",
+        "render_method": "blend" 
+    }
+}
+    },
+    "permutations": [
+    {
+    "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+    "components": {
+      "minecraft:transformation": { "rotation": [0, 0, 0] }
+    }
+  },
+  // Facing west
+  {
+    "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+    "components": {
+      "minecraft:transformation": { "rotation": [0, 90, 0] }
+    }
+  },
+  // Facing south
+  {
+    "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+    "components": {
+      "minecraft:transformation": { "rotation": [0, 180, 0] }
+    }
+  },
+  // Facing east
+  {
+    "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+    "components": {
+      "minecraft:transformation": { "rotation": [0, -90, 0] }
+    }
+  }
+]
+  }
+}

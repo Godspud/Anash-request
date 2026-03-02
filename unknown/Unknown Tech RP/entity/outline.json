@@ -1,0 +1,32 @@
+{
+	"format_version": "1.20.80",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "um:outline",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/outline"
+			},
+			"geometry": {
+				"default": "geometry.outline"
+			},
+			"render_controllers": [
+				"controller.render.outline"
+			],
+				"animations": {
+				"new": "animation.outline.new"
+			},
+			"scripts": {
+				"animate": [
+					"new"
+				]
+			},
+			"spawn_egg": {
+				"base_color": "#FFFFFF",
+				"overlay_color": "#000000"
+			}
+		}
+	}
+}

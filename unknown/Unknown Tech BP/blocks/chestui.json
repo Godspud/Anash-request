@@ -1,0 +1,40 @@
+{ 
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "um:chestui",
+                  "menu_category": {
+                "category": "construction"
+            }
+           /* "states": {
+				"um:area": [ 
+			"2x2", "4x4", "6x6", "8x8"
+				]
+			}*/
+    },
+    "components": {
+    "minecraft:geometry": "minecraft:geometry.full_block",
+     "minecraft:display_name": "UI \n§9Um ",
+     "um:chestui": {},
+     "minecraft:tick": {
+	       "interval_range": [
+		         5,
+		         5
+	                 ]
+                      },
+     "minecraft:destructible_by_mining": {
+    "seconds_to_destroy": 1.0
+     },
+      "minecraft:material_instances": {
+    "*": {
+        "texture": "dirt",
+        "render_method": "blend" 
+    },
+    "up": {
+        "texture": "stone",
+        "render_method": "blend" 
+    }
+}
+    }
+  }
+}

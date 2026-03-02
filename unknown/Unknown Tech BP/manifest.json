@@ -1,0 +1,55 @@
+{
+	"format_version": 2,
+	"metadata": {
+    "product_type": "addon",
+    "description": "by Unknown Mcpe",
+    "authors": ["Unknown Mcpe"]
+  },
+	"header": {
+		"name": "Draft Addon_____",
+		"description": "Unknown Mcpe YT",
+		"min_engine_version": [
+			1,
+			21,
+			80
+		],
+		"uuid": "e93789d5-fdcc-4c60-b68b-1dc20697626c",
+		"version": [1,0,0]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "b025b5cd-86a0-4dc0-83e9-b667035ae52d",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "ebd32630-5d4e-4228-b2e7-c37b08ea90c3",
+			"entry": "scripts/main.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+  {
+    "uuid": "f35f66ac-7319-46f4-8538-d1479259a1e8", 
+    "version": [1,0,0]
+  },
+  {
+  "module_name": "@minecraft/server",
+  "version": "2.0.0"
+},
+    {
+      "version": "2.0.0",
+      "module_name": "@minecraft/server-ui"
+    }
+]
+}

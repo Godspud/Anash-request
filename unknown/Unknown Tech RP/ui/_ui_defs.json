@@ -1,0 +1,9 @@
+{
+    "ui_defs": [
+        "ui/alloy_smelter_gui.json",
+        "ui/um_heat_generator.json",
+        "ui/energy_info.json",
+        "ui/um_smithing_table_screen.json"
+        "ui/um_crusher.json"
+    ]
+}

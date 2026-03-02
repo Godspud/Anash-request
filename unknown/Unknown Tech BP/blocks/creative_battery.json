@@ -1,0 +1,71 @@
+{ 
+  "format_version": "1.21.90", 
+  "minecraft:block": {
+    "description": {
+      "identifier": "um:creative_battery",
+                  "menu_category": {
+                "category": "construction"
+            },
+            "states": {
+				"um:east_IO": [
+					"None",
+					"Output"
+				],
+				"um:west_IO": [
+					"None",
+					"Output"
+				],
+				"um:north_IO": [
+					"None",
+					"Output"
+				],
+				"um:south_IO": [
+					"None",
+					"Output"
+				],
+				"um:up_IO": [
+					"None",
+					"Output"
+				],
+				"um:down_IO": [
+					"Output",
+					"None"
+				]
+		}
+    },
+    "components": {
+    "minecraft:geometry": "minecraft:geometry.full_block",
+     "minecraft:display_name": "Creative Battery \n§9Um ",
+     "tag:energyCable": {},
+     "um:battery": {
+       "isCreative": true,
+       "Capacity": 6000000
+     },
+     "minecraft:tick": {
+	       "interval_range": [
+		         5,
+		         5
+	                 ]
+                      },
+     "minecraft:destructible_by_mining": {
+    "seconds_to_destroy": 1.0
+     },
+      "minecraft:material_instances": {
+    "*": {
+        "texture": "battery_side",
+        "render_method": "blend" 
+    },
+    "up": {
+        "texture": "battery_top",
+        "render_method": "blend"
+    },
+    "down": {
+        "texture": "battery_top",
+        "render_method": "blend"
+    }
+}
+    },
+    "permutations": [
+]
+  }
+}

@@ -1,0 +1,119 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:block": { 
+		"description": {
+			"identifier": "um:energy_cable",
+				"menu_category": {
+				"category": "construction"
+			},
+			"states": {
+				"um:top": [
+					false,
+					true
+				],
+				"um:bottom": [
+					false,
+					true
+				],
+				"um:east": [
+					false,
+					true
+				],
+				"um:west": [
+					false,
+					true
+				],
+				"um:north": [
+					false,
+					true
+				],
+				"um:south": [
+					false,
+					true
+				],
+				"um:center": [
+					false,
+					true
+				],
+				"um:f_top": [
+					true,
+					false
+				],
+				"um:f_bottom": [
+					true,
+					false
+				],
+				"um:f_east": [
+					true,
+					false
+				],
+				"um:f_west": [
+					true,
+					false
+				],
+				"um:f_north": [
+					true,
+					false
+				],
+				"um:f_south": [
+					true,
+					false
+				]
+			}
+		},
+		"components": {
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "energy_pipe",
+					"render_method": "alpha_test"
+				}
+			},
+			"tag:energyCable": {},
+		"minecraft:display_name": "Energy Cable \n§9Um Item Pipe",
+			 "um:energy_cable": {},
+			"minecraft:tick": {
+	"interval_range": [
+		5,
+		5
+	]
+},
+
+      "minecraft:collision_box": {
+        "origin": [
+          -3.0,
+          5.0,
+          -3.0
+        ],
+        "size": [
+          6.0,
+          6.0,
+          6.0
+        ]
+      },
+            "minecraft:selection_box": {
+        "origin": [
+          -3.0,
+          5.0,
+          -3.0
+        ],
+        "size": [
+          6.0,
+          6.0,
+          6.0
+        ]
+      },
+			"minecraft:geometry": {
+				"identifier": "geometry.enegry_cable",
+				"bone_visibility": {
+					"Center": true,
+						"up": "query.block_state('um:top') == true && query.block_state('um:f_top') == true",
+					"down": "query.block_state('um:bottom') == true && query.block_state('um:f_bottom') == true",
+					"east": "query.block_state('um:east') == true && query.block_state('um:f_east') == true",
+					"west": "query.block_state('um:west') == true && query.block_state('um:f_west') == true",
+					"north": "query.block_state('um:north') == true && query.block_state('um:f_north') == true",
+					"south": "query.block_state('um:south') == true && query.block_state('um:f_south') == true"
+				}
+			}
+		}
+	}
+}

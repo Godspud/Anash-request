@@ -1,0 +1,142 @@
+import { system, ItemStack } from "@minecraft/server";
+export { spawnBlockEntity, dropItemsOnGround, findEntityFromLocation, getEntityContainer, formatNumberToString, updateAmountOnSlot, updateTextOnItem, removeItemFromContainer, addItemInContainor, onBlockBreakDropItems, removeEntityFromBlockLocation };
+function removeEntityFromBlockLocation(location, dimension, entityId) {
+    if (!location && !dimension)
+        return;
+    let entity = entityId ?
+        dimension.getEntitiesAtBlockLocation(location).find(e => e.typeId === entityId)
+        : dimension.getEntitiesAtBlockLocation(location)[0];
+        console.log(entity.typeId)
+    entity.kill();
+}
+function onBlockBreakDropItems(block, dimension, entityId) {
+    let entity = findEntityFromLocation(block.location, dimension, entityId);
+    if (!entity) {
+        console.warn(`${entityId} not found`);
+    }
+    let inv = getEntityContainer(entity);
+    if (!inv) {
+        console.warn(`inventory not found`);
+        return;
+    }
+    ;
+    let dropItemSlots = 4;
+    let dropItems = [];
+    for (let i = 0; i < dropItemSlots; i++) {
+        let item = inv.getItem(i);
+        if (!item)
+            continue;
+        dropItems.push(item);
+    }
+    system.run(() => {
+        dropItemsOnGround(dropItems, block.location, dimension);
+    });
+}
+function spawnBlockEntity(blockLoc, entityId, dimension) {
+    if (blockLoc && entityId && dimension) {
+        return dimension.spawnEntity(entityId, blockLoc);
+    }
+    return undefined;
+}
+;
+function dropItemsOnGround(items, location, dimension) {
+    if (items.length > 0 && location && dimension) {
+        let itemEntity = [];
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i];
+            itemEntity.push(dimension.spawnItem(item, location));
+        }
+        ;
+        return itemEntity;
+    }
+    ;
+    return undefined;
+}
+;
+function findEntityFromLocation(location, dimension, entityId) {
+    if (location && dimension) {
+        if (!entityId)
+            return dimension.getEntitiesAtBlockLocation(location)[0];
+        let entitys = dimension.getEntitiesAtBlockLocation(location);
+        return entitys.find(e => e.typeId === entityId);
+    }
+    ;
+    return undefined;
+}
+;
+function getEntityContainer(entity) {
+    if (entity) {
+        return entity.getComponent("inventory").container;
+    }
+    return undefined;
+}
+;
+function formatNumberToString(num) {
+    if (num >= 1_000_000_000) {
+        return (num / 1_000_000_000).toFixed(1).replace(/\.0$/, "") + "b";
+    }
+    if (num >= 1_000_000) {
+        return (num / 1_000_000).toFixed(1).replace(/\.0$/, "") + "m";
+    }
+    if (num >= 1_000) {
+        return (num / 1_000).toFixed(1).replace(/\.0$/, "") + "k";
+    }
+    return num.toString();
+}
+;
+function updateTextOnItem(text, slot) {
+    if (!text && !slot)
+        return;
+    let item = slot.getItem();
+    item.nameTag = text;
+    slot.setItem(item);
+}
+;
+function updateAmountOnSlot(maxCapacity, currentAmount, slot) {
+    if (!slot)
+        return;
+    if (currentAmount < 0)
+        currentAmount = 0;
+    if (currentAmount > maxCapacity)
+        currentAmount = maxCapacity;
+    let ratio = currentAmount / maxCapacity;
+    let stackAmount = Math.floor(ratio * 63);
+    stackAmount += 1;
+    if (stackAmount < 1)
+        stackAmount = 1;
+    if (stackAmount > 64)
+        stackAmount = 64;
+    let item = slot.getItem();
+    if (!item)
+        return;
+    item.amount = stackAmount;
+    slot.setItem(item);
+}
+;
+function removeItemFromContainer(amount = 1, slot) {
+    if (amount > 0 && slot) {
+        let item = slot.getItem();
+        if (!item)
+            return;
+        if (item.amount > amount) {
+            item.amount = item.amount - amount;
+            slot.setItem(item);
+        }
+        else {
+            slot.setItem(undefined);
+        }
+    }
+    return;
+}
+function addItemInContainor(itemId, amount = 1, slot) {
+    if (amount < 0 && !slot)
+        return;
+    let item = slot.getItem();
+    if (item && (item.amount + amount) <= 64) {
+        item.amount = item.amount + amount;
+        slot.setItem(item);
+    }
+    else if (!item && itemId) {
+        slot.setItem(new ItemStack(itemId, amount));
+    }
+}

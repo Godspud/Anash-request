@@ -1,0 +1,44 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "um:five_slots",
+			"runtime_identifier": "minecraft:armor_stand",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false
+		},
+		"components": {
+			"minecraft:damage_sensor": {
+				"triggers": {
+					"deals_damage": false
+				}
+			},
+		            "minecraft:collision_box": {
+                "height": 0.5,
+                "width": 1.1
+            },
+                        "minecraft:nameable": {
+
+            },
+                        "minecraft:inventory": {
+                "container_type": "container",
+
+                "inventory_size": 5
+            },
+		"minecraft:despawn": {
+				"filters": {
+					"subject": "self",
+					"operator": "!=",
+					"test": "in_block",
+					"value": "um:alloy_smelter"
+					}
+					
+				},
+				"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			}
+		}
+	}
+}

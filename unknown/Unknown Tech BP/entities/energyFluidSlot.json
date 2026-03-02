@@ -1,0 +1,58 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "um:energy_fluid_slot",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "properties": {
+                "um:fluid_type": {
+                    "type": "enum",
+                    "values": ["water", "lava", "milk","air"],
+                    "default": "air"
+                },
+               /* "um:energy": {
+                    "type": "int",
+                    "range": [0, 1000000],
+                    "default": 0
+                },
+                "um:energy_cap": {
+                    "type": "int",
+                    "range": [0, 1000000],
+                    "default": 100000
+                },*/
+                "um:fluid_level": {
+                    "type": "int",
+                    "range": [0, 1000000],
+                    "default": 0
+                },
+                "um:fluid_cap": {
+                    "type": "int",
+                    "range": [0, 1000000],
+                    "default": 1000
+                }
+            }
+    },
+    "components": {
+      "minecraft:damage_sensor": {
+				"triggers": {
+					"deals_damage": false
+				}
+			},
+			"minecraft:inventory": {
+                "container_type": "container",
+
+                "inventory_size": 10
+            },
+			"minecraft:physics": {
+				"has_collision": false,
+				"has_gravity": false
+			},
+			"minecraft:collision_box": {
+	        "width": 1.0,
+	        "height": 0.5
+            }
+    }
+  }
+}

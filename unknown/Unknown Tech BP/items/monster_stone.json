@@ -1,0 +1,17 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": { 
+			"identifier": "um:monster_stone",
+			"menu_category": {
+				"category": "items"
+			} 
+		},
+		"components": {
+			"minecraft:icon": "um:monster_stone",
+			"minecraft:display_name": {
+				"value": "Monster Stone \n§9Um Item Pipe"
+			}
+		}
+	}
+}

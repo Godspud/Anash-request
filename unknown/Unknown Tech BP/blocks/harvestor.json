@@ -1,0 +1,45 @@
+{ 
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "um:harvestor", 
+                  "menu_category": {
+                "category": "construction" 
+            },
+            "states": {
+				"um:area": [ 
+			"2x2", "4x4", "6x6", "8x8"
+				]
+			}
+    }, 
+    "components": {
+    "minecraft:geometry": "minecraft:geometry.full_block",
+     "minecraft:display_name": "Harvestor \n§9Um ",
+     "um:harvestor": {},
+     "tag:energyCable": {},
+     "minecraft:tick": {
+	       "interval_range": [
+		         1,
+		         1
+	                 ]
+                      },
+     "minecraft:destructible_by_mining": {
+    "seconds_to_destroy": 1.0
+     },
+      "minecraft:material_instances": {
+    "*": {
+        "texture": "harvestor_sides",
+        "render_method": "blend" 
+    },
+    "up": {
+        "texture": "harvestor_top",
+        "render_method": "blend" 
+    },
+    "down": {
+        "texture": "harvestor_down",
+        "render_method": "blend" 
+    }
+}
+    }
+  }
+}

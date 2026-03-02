@@ -1,0 +1,85 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:block": {
+        "description": {
+            "identifier": "um:alloy_smelter",
+            "menu_category": {
+                "category": "construction"
+            },
+            "traits": {
+                "minecraft:placement_direction": {
+                    "enabled_states": ["minecraft:cardinal_direction"],
+                    "y_rotation_offset": 180
+                }
+            }
+            /* "states": {
+				"um:area": [ 
+			"2x2", "4x4", "6x6", "8x8"
+				]
+			}*/
+        },
+        "components": {
+            "minecraft:geometry": "minecraft:geometry.full_block",
+            "minecraft:display_name": "Alloy Smelter \n§9Um ",
+            "um:alloy_smelter": {},
+            "um:energy_block": {
+                "entity": "um:energy_fluid_slot",
+                "capacity": 1000,
+                "gui_id": "um.alloy_smelter.ui"
+            },
+            "minecraft:tick": {
+                "interval_range": [5, 5]
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "factory_block_side",
+                    "render_method": "blend"
+                },
+                "up": {
+                    "texture": "factory_block_top",
+                    "render_method": "blend"
+                },
+                "down": {
+                    "texture": "factory_block_top",
+                    "render_method": "blend"
+                },
+                "north": {
+                    "texture": "alloy_smelter_front",
+                    "render_method": "blend"
+                }
+            }
+        },
+        "permutations": [
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+                "components": {
+                    "minecraft:transformation": { "rotation": [0, 0, 0] }
+                }
+            },
+            // Facing west
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+                "components": {
+                    "minecraft:transformation": { "rotation": [0, 90, 0] }
+                }
+            },
+            // Facing south
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+                "components": {
+                    "minecraft:transformation": { "rotation": [0, 180, 0] }
+                }
+            },
+            // Facing east
+            {
+                "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+                "components": {
+                    "minecraft:transformation": { "rotation": [0, -90, 0] }
+                }
+            }
+        ]
+    }
+}

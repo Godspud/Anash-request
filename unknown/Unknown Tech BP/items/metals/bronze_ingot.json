@@ -1,0 +1,18 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:item": {
+        "description": {
+            "identifier": "um:bronze_ingot",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:icon": "bronze_ingot_ingot",
+            "minecraft:max_stack_size": 64,
+            "minecraft:display_name": {
+                "value": "Bronze Ingot \n§9Um"
+            }
+        }
+    }
+}

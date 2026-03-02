@@ -1,0 +1,36 @@
+{
+    "format_version": "1.21.90",
+    "minecraft:block": {
+        "description": {
+            "identifier": "um:block_datas",
+            "menu_category": {
+                "category": "construction"
+            }
+        },
+        "components": {
+            "minecraft:geometry": "minecraft:geometry.full_block",
+            "minecraft:display_name": "Block Datas \n§9Um ",
+            "um:blockDatas": {},
+            "minecraft:tick": {
+                "interval_range": [5, 5]
+            },
+            "minecraft:destructible_by_mining": {
+                "seconds_to_destroy": 1.0
+            },
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "battery_side",
+                    "render_method": "blend"
+                },
+                "up": {
+                    "texture": "battery_top",
+                    "render_method": "blend"
+                },
+                "down": {
+                    "texture": "battery_top",
+                    "render_method": "blend"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,309 @@
+{
+    "namespace": "um_alloy_smelter",
+    "bonsai_text": {
+      "type": "label",
+      "text": "Alloy Smelter",
+      "color": "$title_text_color",
+      "anchor_from": "top_left",
+      "anchor_to": "top_left",
+      "layer": 10
+    },
+    "energy_info": {
+      "type": "label",
+      "text": "#hover_text",
+      "color": "$title_text_color",
+      "anchor_from": "top_left",
+      "anchor_to": "top_left",
+      "layer": 10,
+      "bindings": [
+      {
+      "binding_name": "#hover_text",
+      "binding_condition": "always",  
+      "binding_type": "collection",
+      "binding_collection_name": "container_items"
+      }
+      ]
+    },
+   "energy_indicator": {
+    "type": "image",
+    "texture": "textures/ui/energy_indicator",
+    "$max_count": 63.0,
+    "clip_direction": "down",
+    "uv": [27,10],
+    "uv_size": [11,44],
+   // "tiled": true,
+   "keep_ratio": false,
+    "clip_pixelperfect": true,
+    "bindings": [
+        {
+                                                    "binding_name": "#inventory_stack_count",
+                                                    "binding_name_override": "#stack_count",
+                                                    "binding_condition": "always",  
+                                                    "binding_type": "collection",
+                                                    "binding_collection_name": "container_items"
+                                                },
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_property_name": "(not (#stack_count = ''))",
+                                                    "target_property_name": "#visible"
+                                                },
+                                                {
+                                                    "binding_type": "view",
+                                                    "source_property_name": "((#stack_count - '§r' - '§f' - '§o') * 1)",
+                                                    "target_property_name": "#stack_number"
+                                                },
+                                                {
+                                                    "binding_condition": "always",
+                                                    "binding_type": "view",
+                                                    "source_property_name": "(1 - ((#stack_number - 1) / $max_count))",
+                                                    "target_property_name": "#clip_ratio"
+                                                }
+    
+     ]
+    },
+    "bonsai_tree_icon": {
+      "type": "image",
+      "texture": "textures/ui/Sapling_icon",
+      "anchor_from": "center",
+      "anchor_to": "center"
+    },
+    "invisible_slot_cell": {
+      "type": "image",
+      "texture": "textures/ui/cell_invisible",
+      "anchor_from": "center",
+      "anchor_to": "center"
+    },
+    "alloy_smelter_gui": {
+      "type": "image",
+      "texture": "textures/gui/alloy_smelter",
+      "anchor_from": "center",
+      "anchor_to": "center"
+    },
+    "um_alloy_smelter_top": {
+        "type": "collection_panel",
+        "anchor_from": "center",
+        "anchor_to": "center",
+        "size": [
+            162,
+            72
+        ],
+        "offset": [
+            -10,
+            -40
+        ],
+        "collection_name": "container_items",
+        "$item_collection_name": "container_items",
+        "controls": [
+        
+        {
+          "gui@um_alloy_smelter.alloy_smelter_gui": {
+          "size": [200,200],
+          "offset": [10,"35px"],
+          "collection_index": 4,
+          "controls":[
+          {
+        "close_button@um_alloy_smelter.close_button": {
+        "anchor_from": "top_right",
+        "anchor_to": "top_right",
+          "size": [20,20],
+          "offset": [1,5], 
+          "layer": 2
+             }
+        },
+        {
+        "energy_indicator@um_alloy_smelter.energy_indicator":{
+             "size": [12,49],
+             "offset": [17.5,21],
+             "anchor_from": "top_left",
+             "anchor_to": "top_left",
+             "layer": 2
+             }
+          },
+          {
+          "energy_info@um_alloy_smelter.energy_info":{
+              "layer": 2,
+              "anchor_from": "left_middle",
+              "anchor_to": "left_middle",
+             // "size": [40,10],
+             "font_size": "normal",
+             "font_scale_factor": 0.7,
+              "offset": [5,-20]
+            }
+          }
+      ]
+   }
+},
+            {
+                "item@common.container_item": {
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                   "$background_images|default": "um_alloy_smelter.invisible_slot_cell",
+                    "offset": [
+                        -19.5,
+                        -31
+                    ],
+                    "collection_index": 0
+
+                                            
+                }
+            },
+            {
+                "item@common.container_item": {
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "$background_images|default": "um_alloy_smelter.invisible_slot_cell",
+                    "offset": [
+                        9,
+                        -43
+                    ],
+                    "collection_index": 1
+
+                                            
+                }
+            },
+            {
+                "item@common.container_item": {
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "$background_images|default": "um_alloy_smelter.invisible_slot_cell",
+                    "offset": [
+                        36,
+                        -31
+                    ],
+                    "collection_index": 2
+
+                                            
+                }
+            },
+            {
+                "item@common.container_item": {
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                    "$background_images|default": "um_alloy_smelter.invisible_slot_cell",
+                    "offset": [
+                        9,
+                        15
+                    ],
+                    "collection_index": 3
+
+                                            
+                }
+            }
+            ,{
+                "item@common.container_item": {
+                    "anchor_from": "center",
+                    "anchor_to": "center",
+                  //  "$background_images|default": "um_alloy_smelter.invisible_slot_cell",
+                    "offset": [
+                        40,
+                        15
+                    ],
+                    "collection_index": 4
+
+                                            
+                }
+            }
+        ]
+    },
+    "main_test_panel": {
+        "type": "panel",
+        "controls": [
+            {
+                "container_gamepad_helpers@common.container_gamepad_helpers": {}
+            },
+            {
+                "flying_item_renderer@common.flying_item_renderer": {
+                    "layer": 14
+                }
+            },
+            {
+                "selected_item_details_factory@common.selected_item_details_factory": {}
+            },
+            {
+                "item_lock_notification_factory@common.item_lock_notification_factory": {}
+            },
+            {
+                "root_panel@common.root_panel": {
+                    "layer": 1,
+                    "controls": [
+                       /* {
+                            "common_panel@common.common_panel": {}
+                        },*/
+                        {
+                            "chest_panel": {
+                                "type": "panel",
+                                "layer": 5,
+                                "controls": [
+                                    {
+                                        "um_alloy_smelter_top@um_alloy_smelter.um_alloy_smelter_top": {
+                                        }
+                                    },
+                                  {
+                                    "bonsai_text@um_alloy_smelter.bonsai_text": {
+                                      "offset": [-7,-13]
+                                    }
+                                  },
+                                    {
+                                        "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {}
+                                    },
+                                    {
+                                        "hotbar_grid@common.hotbar_grid_template": {}
+                                    },
+                                    {
+                                        "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {}
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "inventory_selected_icon_button@common.inventory_selected_icon_button": {}
+                        },
+                        {
+                            "gamepad_cursor@common.gamepad_cursor_button": {}
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+// close button test
+
+"close_button": {
+    "type": "panel",
+    "$show_close_button|default": true,
+    "$close_button_visible_binding_name|default": "#close_button_visible",
+    "$close_button_offset|default": [ 0, 0 ],
+    "$close_button_layer|default": 2,
+    "$use_compact_close_button|default": false,
+    "controls": [
+      {
+        "close_button_holder": {
+          "type": "panel",
+          "ignored": "(not $show_close_button)",
+          "controls": [
+            {
+              "close@common.close_button": {
+                "layer": "$close_button_layer",
+                "offset": "$close_button_offset",
+                "ignored": "$use_compact_close_button"
+              }
+            },
+            {
+              "compact_close@common.compact_close_button": {
+                "layer": "$close_button_layer",
+                "offset": "$close_button_offset",
+                "ignored": "(not $use_compact_close_button)"
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_name": "$close_button_visible_binding_name",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

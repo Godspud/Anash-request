@@ -1,0 +1,31 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Draft Addon_______",
+		"description": "Unknown Mcpe YT",
+		"min_engine_version": [
+			1,
+			21,
+			50
+		],
+		"uuid": "f35f66ac-7319-46f4-8538-d1479259a1e8",
+		"version": [1,0,0]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "ba0539bf-050c-4298-bdd9-d5c4555953c9",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+"dependencies": [
+  {
+    "uuid": "e93789d5-fdcc-4c60-b68b-1dc20697626c",
+    "version": [1,0,0]
+  }
+]
+}

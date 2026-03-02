@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.outline.new": {
+			"loop": true,
+			"bones": {
+				"bone": {
+				    "rotation": [1, 1, 1],
+					"scale": [16, 16, "q.property('um:size') * 16"]
+				}
+			}
+		}
+	}
+}

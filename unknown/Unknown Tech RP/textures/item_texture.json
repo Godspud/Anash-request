@@ -1,0 +1,24 @@
+{
+	"resource_pack_name": "Amethyst",
+	"texture_name": "atlas.items",
+	"texture_data": {
+       "um_wrench": {
+			"textures": "textures/items/wrench"
+		},
+		"um:monster_stone": {
+			"textures": "textures/items/monster_stone"
+		},
+		"steel_ingot":{
+		  "textures":"textures/items/steel_ingot"
+		},
+		"bronze_ingot":{
+		  "textures":"textures/items/bronze_ingot"
+		},
+		"tin_ingot":{
+		  "textures":"textures/items/tin_ingot"
+		},
+		"speed_upgrade":{
+		  "textures":"textures/items/speed_upgrade"
+		}
+	}
+}

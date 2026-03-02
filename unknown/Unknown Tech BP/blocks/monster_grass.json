@@ -1,0 +1,38 @@
+{ 
+  "format_version": "1.21.90",
+  "minecraft:block": {
+    "description": {
+      "identifier": "um:monster_grass", 
+                  "menu_category": {
+                "category": "construction" 
+            }
+    },
+    "components": {
+    "minecraft:geometry": "minecraft:geometry.full_block",
+     "minecraft:display_name": "Monster Grass \n§9Um ",
+     "minecraft:tick": {
+	       "interval_range": [
+		         1,
+		         1
+	                 ]
+                      },
+     "minecraft:destructible_by_mining": {
+    "seconds_to_destroy": 1.0
+     },
+      "minecraft:material_instances": {
+    "*": {
+        "texture": "um:monster_grass_side",
+        "render_method": "blend" 
+    },
+    "up": {
+        "texture": "um:monster_grass_top",
+        "render_method": "blend" 
+    },
+    "down": {
+        "texture": "dirt",
+        "render_method": "blend" 
+    }
+}
+    }
+  }
+}

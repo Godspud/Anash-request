@@ -1,0 +1,18 @@
+{
+	"format_version": "1.21.90",
+	"minecraft:item": {
+		"description": {
+			"identifier": "um:steel_nugget",
+			"menu_category": {
+				"category": "items"
+			} 
+		},
+		"components": {
+			"minecraft:icon": "steel_nugget",
+			"minecraft:max_stack_size": 64,
+			"minecraft:display_name": {
+				"value": "Steel nugget \n§9Um"
+			}
+		}
+	}
+}
